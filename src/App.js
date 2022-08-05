@@ -280,7 +280,17 @@ function App() {
       img: "https://www.asus.com/media/IN/products/gh7f5x7fznxj1wrn/P_setting_xxx_0_90_end_2000.png",
     },
   ];
-  
+  const API="https://62a970daec36bf40bdb78cff.mockapi.io";
+
+const [equipment, setEquipment] = useState([]);
+
+  const allEquipments = () => {
+    fetch(`${API}/equipments`, { method: "GET" })
+      .then((data) => data.json())
+      .then((eqs) => setEquipment(eqs));
+  };
+
+  useEffect(() => allEquipments(), []);
   return (
     <div className="App">
       <div className="equipment-list">
