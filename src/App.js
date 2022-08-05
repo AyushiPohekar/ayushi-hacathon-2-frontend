@@ -6,6 +6,9 @@ import Login from "./Login";
 import Register from "./Register";
 import {useEffect} from "react";
 import {useState} from "react";
+import { Equipments } from "./Equipments";
+import  Equipmentlist  from "./Equipmentlist";
+import { EquipmentDetails } from "./EquipmentDetails";
 
 function App() {
   const equipments = [
@@ -280,29 +283,19 @@ function App() {
       img: "https://www.asus.com/media/IN/products/gh7f5x7fznxj1wrn/P_setting_xxx_0_90_end_2000.png",
     },
   ];
-  const API="https://62a970daec36bf40bdb78cff.mockapi.io";
 
-const [equipment, setEquipment] = useState([]);
 
-  const allEquipments = () => {
-    fetch(`${API}/equipments`, { method: "GET" })
-      .then((data) => data.json())
-      .then((eqs) => setEquipment(eqs));
-  };
 
-  useEffect(() => allEquipments(), []);
   return (
     <div className="App">
-      <div className="equipment-list">
-        {equipments.map((eq) => (
-          <Equipments equipment={eq} />
-        ))}
-      </div>
+     
       <section className="route-container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/equipments" element={<Equipmentlist />} />
+          <Route path="/equipments/:id" element={<EquipmentDetails />} />
 
           {/* <Route path="/" element={<Editmovie/>} /> */}
         </Routes>
@@ -311,23 +304,4 @@ const [equipment, setEquipment] = useState([]);
   );
 }
 
-function Equipments({ equipment }) {
-  return (
-    <div className="equipment-container">
-      <img
-        src={equipment.img}
-        alt={equipment.name}
-        className="equipment-picture"
-      />
-      <h2 className="equipment-name">{equipment.name}</h2>
-
-      <div className="detail-button">
-        {" "}
-        <button>View Details</button>
-      </div>
-    </div>
-  );
-}
-
-function EquipmentDetails() {}
 export default App;
