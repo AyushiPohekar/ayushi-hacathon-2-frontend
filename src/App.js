@@ -4,16 +4,29 @@ import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
-import {useEffect} from "react";
-import {useState} from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Equipments } from "./Equipments";
-import  Equipmentlist  from "./Equipmentlist";
-import { EquipmentDetails } from "./EquipmentDetails";
+import Equipmentlist from "./Equipmentlist";
+// import AppBar  from "./Appbar";
 
+import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+
+import AppBar from "@mui/material/AppBar";
+
+import Toolbar from "@mui/material/Toolbar";
+import { EquipmentDetails } from "./EquipmentDetails";
+import Cart from "./addtocart/Cart";
+import React from "react";
+import IconButton from "@mui/material/IconButton";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import Box from '@mui/material/Box';
+import Badge from '@mui/material/Badge';
 function App() {
   const equipments = [
     {
-      id: 1,
+      id: "1",
       name: " Nikon Camera",
       brandname: "Nikon",
       rating: 4.4,
@@ -24,7 +37,7 @@ function App() {
     },
 
     {
-      id: 2,
+      id: "2",
       name: "Canon Camera",
       brandname: "Canon",
       rating: 4.2,
@@ -35,7 +48,7 @@ function App() {
     },
 
     {
-      id: 3,
+      id: "3",
       name: "Sony Camera",
       brandname: "Sony",
       rating: 4.2,
@@ -45,7 +58,7 @@ function App() {
     },
 
     {
-      id: 4,
+      id: "4",
       name: "Panasonic Camera",
       brandname: "Panasonic",
       rating: 4.3,
@@ -56,7 +69,7 @@ function App() {
     },
 
     {
-      id: 5,
+      id: "5",
       name: "Olympus Camera",
       brandname: "Olympus",
       rating: 4.1,
@@ -67,7 +80,7 @@ function App() {
     },
 
     {
-      id: 6,
+      id: "6",
       name: "Samsung Fridge",
       brandname: "Samsung",
       rating: 3.9,
@@ -77,7 +90,7 @@ function App() {
     },
 
     {
-      id: 7,
+      id: "7",
       name: "Onida Fridge",
       brandname: "Onida",
       rating: 3.7,
@@ -87,7 +100,7 @@ function App() {
     },
 
     {
-      id: 8,
+      id: "8",
       name: "Videocon Fridge",
       brandname: "Videocon",
       rating: 3.8,
@@ -97,7 +110,7 @@ function App() {
     },
 
     {
-      id: 9,
+      id: "9",
       name: "Bosch Fridge",
       brandname: "Bosch",
       rating: 3.6,
@@ -108,7 +121,7 @@ function App() {
     },
 
     {
-      id: 10,
+      id: "10",
       name: "Godrej Fridge",
       brandname: "Godrej",
       rating: 3.7,
@@ -119,7 +132,7 @@ function App() {
     },
 
     {
-      id: 11,
+      id: "11",
       name: "LG AC",
       brandname: "LG",
       rating: 3.7,
@@ -130,7 +143,7 @@ function App() {
     },
 
     {
-      id: 12,
+      id: "12",
       name: "Daikin AC",
       brandname: "Daikin",
       rating: 3.3,
@@ -141,7 +154,7 @@ function App() {
     },
 
     {
-      id: 13,
+      id: "13",
       name: "Panasonic AC",
       brandname: "Panasonic",
       rating: 3.9,
@@ -152,7 +165,7 @@ function App() {
     },
 
     {
-      id: 14,
+      id: "14",
       name: "Bluestar AC",
       brandname: "Bluestar",
       rating: 4.0,
@@ -163,7 +176,7 @@ function App() {
     },
 
     {
-      id: 15,
+      id: "15",
       name: "Godrej AC",
       brandname: "Godrej",
       rating: 3.2,
@@ -174,7 +187,7 @@ function App() {
     },
 
     {
-      id: 16,
+      id: "16",
       name: "Samsung Washing Machine",
       brandname: "Samsung",
       rating: 4.2,
@@ -185,7 +198,7 @@ function App() {
     },
 
     {
-      id: 17,
+      id: "17",
       name: "Godrej Washing Machine",
       brandname: "Godrej",
       rating: 4.3,
@@ -196,7 +209,7 @@ function App() {
     },
 
     {
-      id: 18,
+      id: "18",
       name: "IFB Washing Machine",
       brandname: "IFB",
       rating: 4.3,
@@ -207,7 +220,7 @@ function App() {
     },
 
     {
-      id: 19,
+      id: "19",
       name: "LG Washing Machine",
       brandname: "LG",
       rating: 4.2,
@@ -218,7 +231,7 @@ function App() {
     },
 
     {
-      id: 20,
+      id: "20",
       name: "Videocon Washing Machine",
       brandname: "Videocon",
       rating: 4.2,
@@ -229,7 +242,7 @@ function App() {
     },
 
     {
-      id: 21,
+      id: "21",
       name: "HP Laptop",
       brandname: "HP",
       rating: 4.4,
@@ -240,7 +253,7 @@ function App() {
     },
 
     {
-      id: 22,
+      id: "22",
       name: "Dell Laptop",
       brandname: "Dell",
       rating: 4.7,
@@ -251,7 +264,7 @@ function App() {
     },
 
     {
-      id: 23,
+      id: "23",
       name: "Acer Laptop",
       brandname: "Acer",
       rating: 3.9,
@@ -262,7 +275,7 @@ function App() {
     },
 
     {
-      id: 24,
+      id: "24",
       name: "Sony Laptop",
       brandname: "Sony",
       rating: 4,
@@ -273,7 +286,7 @@ function App() {
     },
 
     {
-      id: 25,
+      id: "25",
       name: "Asus Laptop",
       brandname: "Asus",
       rating: 4.1,
@@ -283,12 +296,26 @@ function App() {
       img: "https://www.asus.com/media/IN/products/gh7f5x7fznxj1wrn/P_setting_xxx_0_90_end_2000.png",
     },
   ];
-
-
+  const navigate = useNavigate();
 
   return (
     <div className="App">
-     
+         <Box sx={{ flexGrow: 1 }}></Box>
+      <AppBar position="static" className="navbar">
+        <Toolbar>
+          <Button onClick={() => navigate("/")} color="inherit">
+            Home
+          </Button>
+          <Button onClick={() => navigate("/equipments")} color="inherit">
+            Equipments
+          </Button>
+          <Badge badgeContent={1} color="error">  
+ <IconButton color="inherit"  aria-label="addtocart">
+ <AddShoppingCartIcon />
+    </IconButton></Badge>
+          </Toolbar>
+      </AppBar>
+
       <section className="route-container">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -296,8 +323,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/equipments" element={<Equipmentlist />} />
           <Route path="/equipments/:id" element={<EquipmentDetails />} />
+          <Route path="/equipments/cart" element={<Cart />} />
 
-          {/* <Route path="/" element={<Editmovie/>} /> */}
+        
         </Routes>
       </section>
     </div>

@@ -3,17 +3,21 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useState, useEffect } from "react";
-import { API } from "./global";
+
+
 
 
 export function EquipmentDetails() {
+
   const { id } = useParams();
   const [equipment, setEquipment] = useState({});
+
   useEffect(() => {
-    fetch(`${API}/equipments/${id}`, { method: "GET" })
+    fetch(`https://62a970daec36bf40bdb78cff.mockapi.io/equipments/${id}`, { method: "GET" })
       .then((data) => data.json())
       .then((eq) => setEquipment(eq));
   }, [id]);
+  const navigate = useNavigate(); 
   return (
     <div className="Equipment-details-container">
        <img
@@ -26,6 +30,13 @@ export function EquipmentDetails() {
      <h5 className="equipmentbrand">{equipment.brandname}</h5>
      <p className="equipmentsummary">{equipment.summary}</p>
      <p className="equipmentRate"><i>Rent:</i>{equipment.rent_per_month} per month</p>
+     <Button
+          onClick={() => navigate(-1)}
+          variant="outlined"
+          startIcon={<ArrowBackIosIcon />}
+        >
+          Back
+        </Button>
 
      </div>
     </div>
