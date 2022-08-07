@@ -3,6 +3,14 @@
   height: 200px;
   width: 450px;
   object-fit: contain;
+  display: block;
+}
+.equipmentimage{
+  margin-top: 1px;
+  height: 300px;
+  width: 450px;
+  object-fit: contain;
+  display: block;
 }
 .equipment-name {
   padding: 16px;
@@ -32,11 +40,23 @@
 }
 .detail-button{
 display: flex;
+flex-wrap: wrap;
 justify-content:space-around;
 }
 .Equipment-details-container{
+  display: flex;
+  justify-content: space-around;
   margin-left: 10px;
+  padding-left: 30px;
+  padding-top:30px;
+  width: 80%;
 }
+/* .equipment-individual{
+  display: flex;
+ flex-wrap: wrap;
+ margin-left: 50px;
+} */
+
 .equipmentName{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size:x-large;
@@ -50,6 +70,7 @@ justify-content:space-around;
 .add-to-cart{
   justify-content: flex-end;
 }
+
 .main-cart-section .cart-items {
   width: 100%;
   height: 62rem;
@@ -92,4 +113,20 @@ justify-content:space-around;
   border-radius: 0.5rem;
   cursor: pointer;
   letter-spacing: 1px;
+}
+
+.add-equipment-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+}
+.buttons{
+  margin-top:50px;
+  margin-bottom:50px;
+  display:flex;
+  justify-content: space-around;
+}
+.equipment-individual{
+  align-items: center;
 }

@@ -17,9 +17,10 @@ export function Equipments({ equipment,id }) {
       <div className="detail-button">
        
       <Button variant="contained" onClick={()=>navigate(`/equipments/${id}`)}>View Details</Button>
-      <Button variant="contained" color="success" onClick={()=>navigate('/equipments/cart')}>Add to Cart</Button>
-
+      <Button variant="contained" color="success" onClick={()=>navigate(`/equipments/cart/${id}`)}>Add to Cart</Button>
+       
       </div>
+      
     </div>
   );
 }

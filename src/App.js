@@ -23,6 +23,9 @@ import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Box from '@mui/material/Box';
 import Badge from '@mui/material/Badge';
+import  Editequipment from './EditEquipment';
+import AddEquipment from './AddEquipment';
+
 function App() {
   const equipments = [
     {
@@ -309,6 +312,7 @@ function App() {
           <Button onClick={() => navigate("/equipments")} color="inherit">
             Equipments
           </Button>
+          <Button onClick={() => navigate('/equipments/add')} color="inherit">Add Equipments</Button>
           <Badge badgeContent={1} color="error">  
  <IconButton color="inherit"  aria-label="addtocart">
  <AddShoppingCartIcon />
@@ -323,7 +327,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/equipments" element={<Equipmentlist />} />
           <Route path="/equipments/:id" element={<EquipmentDetails />} />
-          <Route path="/equipments/cart" element={<Cart />} />
+          <Route path="/equipments/edit/:id/edit" element={<Editequipment/>} />
+          <Route path="/equipments/cart/:id" element={<Cart />} />
+          <Route path="/equipments/add" element={<AddEquipment />} />
 
         
         </Routes>
