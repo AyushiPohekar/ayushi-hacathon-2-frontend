@@ -1,5 +1,15 @@
 
-.continue-shopping {
+
+
+
+
+
+
+
+
+
+
+/* .continue-shopping {
   display: flex;
   height: inherit;
   align-items: center;
@@ -55,7 +65,7 @@
   width: 100%;
   height: 11rem;
   /* background-color: green; */
-  margin: auto;
+  /* margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
  
@@ -162,4 +172,4 @@
   line-height: 3.2rem;
   text-transform: capitalize;
   color: #606166;
-}
+} */ 
