@@ -5,8 +5,9 @@ import { API } from "./global.js";
 
 import React from "react";
 
-function Equipmentlist() {
+function Equipmentlist({handleClick}) {
   const [equipmentlist, setEquipmentlist] = useState([]);
+  
 
   const allEquipments = () => {
     fetch(`${API}/equipments`, { method: "GET" })
@@ -20,7 +21,7 @@ function Equipmentlist() {
   return (
     <div className="equipment-list">
       {equipmentlist.map((eq) => (
-        <Equipments equipment={eq} key={eq.id} id={eq.id} />
+        <Equipments equipment={eq} key={eq.id} id={eq.id} handleClick={handleClick}/>
       ))}
     </div>
   );

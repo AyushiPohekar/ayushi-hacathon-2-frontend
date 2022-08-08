@@ -12,13 +12,13 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { EquipmentDetails } from "./EquipmentDetails";
 import React from "react";
-// import IconButton from "@mui/material/IconButton";
-// import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import IconButton from "@mui/material/IconButton";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Box from '@mui/material/Box';
-// import Badge from '@mui/material/Badge';
+import Badge from '@mui/material/Badge';
 import  Editequipment from './EditEquipment';
 import AddEquipment from './AddEquipment';
-// import Cart from './addtocart/Cart';
+ import Cart from './cart';
 
 
 function App() {
@@ -295,36 +295,49 @@ function App() {
   //   },
   // ];
 const navigate = useNavigate();
+const[show,setShow]=useState(true);
+const [cart,setCart]=useState([]);
+  const handleClick=(equipment)=>{
+   setCart([...cart,equipment]);
+  }
+  const handleChange = (item, d) => {
+    const ind = cart.indexOf(item);
+    const arr = cart;
+    arr[ind].amount += d;
 
+    if (arr[ind].amount === 0) arr[ind].amount = 1;
+    setCart([...arr]);
+  };
+  const size=cart.length;
   return (
     
     <div className="App">
          <Box sx={{ flexGrow: 1 }}></Box>
       <AppBar position="static" className="navbar">
         <Toolbar>
-          <Button onClick={() => navigate("/")} color="inherit">
+          {/* <Button onClick={() => navigate("/")} color="inherit">
             Home
-          </Button>
+          </Button> */}
           <Button onClick={() => navigate("/equipments")} color="inherit">
             Equipments
           </Button>
           <Button onClick={() => navigate('/equipments/add')} color="inherit">Add Equipments</Button>
-          {/* <Badge badgeContent={1} color="error">  
- <IconButton color="inherit"  aria-label="addtocart">
+          <Badge badgeContent={size} color="error">  
+ <IconButton color="inherit"  aria-label="addtocart" onClick={()=> navigate('/equipments/cart')}>
  <AddShoppingCartIcon />
-    </IconButton></Badge> */}
+    </IconButton ></Badge>
           </Toolbar>
       </AppBar>
-
+          
       <section className="route-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Navigate replace to="/equipments" />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/equipments" element={<Equipmentlist/>} />
+          <Route path="/equipments" element={<Equipmentlist handleClick={handleClick}/>} />
           <Route path="/equipments/:id" element={<EquipmentDetails />} />
           <Route path="/equipments/edit/:id/edit" element={<Editequipment/>} />
-          {/* <Route path="/equipments/cart" element={<Cart />} /> */}
+           <Route path="/equipments/cart" element={<Cart cart={cart} setCart={setCart} handleChange={handleChange}/>} /> 
           <Route path="/equipments/add" element={<AddEquipment />} />
 
         
