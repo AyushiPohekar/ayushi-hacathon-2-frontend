@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
-export function Equipments({ equipment, id,handleClick}) {
+export function Equipments({ equipment, id, handleClick }) {
   const navigate = useNavigate();
   return (
     <div className="equipment-container">
@@ -20,7 +20,13 @@ export function Equipments({ equipment, id,handleClick}) {
         >
           View Details
         </Button>
-        <Button variant="contained" color="success" onClick={()=>handleClick(equipment)}>Add to Cart</Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => handleClick(equipment)}
+        >
+          Add to Cart
+        </Button>
         {/* <Button variant="contained" color="success" onClick={()=>navigate('/equipments/cart')}>Add to Cart</Button> */}
       </div>
     </div>

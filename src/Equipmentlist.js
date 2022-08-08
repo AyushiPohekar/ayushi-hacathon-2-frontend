@@ -7,7 +7,7 @@ import React from "react";
 
 function Equipmentlist({handleClick}) {
   const [equipmentlist, setEquipmentlist] = useState([]);
-  
+  const [query, setQuery] = useState("")
 
   const allEquipments = () => {
     fetch(`${API}/equipments`, { method: "GET" })
@@ -21,10 +21,14 @@ function Equipmentlist({handleClick}) {
   return (
     <div>
     <div className="search">
-      <input placeholder="what are you lookin for?"/>
+      <input placeholder="Camera,fridge,laptop,etc" onChange={event => setQuery(event.target.value)}/>
       </div>
     <div className="equipment-list">
-      {equipmentlist.map((eq) => (
+      {equipmentlist.filter(eq=>{if(query===''){return eq;}
+      else if(eq.name.toLowerCase().includes(query.toLowerCase()))
+      {return eq;}
+      })
+      .map((eq) => (
         <Equipments equipment={eq} key={eq.id} id={eq.id} handleClick={handleClick}/>
       ))}
     </div>

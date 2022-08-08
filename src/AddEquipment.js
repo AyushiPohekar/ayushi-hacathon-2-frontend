@@ -3,9 +3,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
 
-
-
- function AddEquipment({ equipmentList, setEquipmentlist }) {
+function AddEquipment({ equipmentList, setEquipmentlist }) {
   const [name, setName] = useState("");
   const [brandname, setbrandname] = useState("");
   const [rating, setRating] = useState("");
@@ -41,51 +39,49 @@ import { useNavigate } from "react-router-dom";
     }).then(() => navigate("/equipments"));
   };
 
-  return(
+  return (
     <div className="add-equipment-form">
-    <TextField
-      value={name}
-      label="Name"
-      variant="outlined"
-      onChange={(event) => setName(event.target.value)}
-    />
-    <TextField
-      value={brandname}
-      label="BrandName"
-      variant="outlined"
-      onChange={(event) => setName(event.target.value)}
-    />
-    <TextField
-      value={img}
-      label="img"
-      variant="outlined"
-      onChange={(event) => setimg(event.target.value)}
-    />
-    <TextField
-      value={rating}
-      label="Rating"
-      variant="outlined"
-      onChange={(event) => setRating(event.target.value)}
-    />
-    <TextField
-      value={summary}
-      label="Summary"
-      variant="outlined"
-      onChange={(event) => setSummary(event.target.value)}
-    />
-    <TextField
-      value={rent_per_month}
-      label="rent_per_month"
-      variant="outlined"
-      onChange={(event) => setrent_per_month(event.target.value)}
-    />
-   
+      <TextField
+        value={name}
+        label="Name"
+        variant="outlined"
+        onChange={(event) => setName(event.target.value)}
+      />
+      <TextField
+        value={brandname}
+        label="BrandName"
+        variant="outlined"
+        onChange={(event) => setName(event.target.value)}
+      />
+      <TextField
+        value={img}
+        label="img"
+        variant="outlined"
+        onChange={(event) => setimg(event.target.value)}
+      />
+      <TextField
+        value={rating}
+        label="Rating"
+        variant="outlined"
+        onChange={(event) => setRating(event.target.value)}
+      />
+      <TextField
+        value={summary}
+        label="Summary"
+        variant="outlined"
+        onChange={(event) => setSummary(event.target.value)}
+      />
+      <TextField
+        value={rent_per_month}
+        label="rent_per_month"
+        variant="outlined"
+        onChange={(event) => setrent_per_month(event.target.value)}
+      />
 
-    <Button onClick={addequipment} variant="contained" color="success">
-      Save
-    </Button>
-  </div>
-  )
-  
+      <Button onClick={addequipment} variant="contained" color="success">
+        Save
+      </Button>
+    </div>
+  );
 }
 export default AddEquipment;
