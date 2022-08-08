@@ -1,8 +1,7 @@
 import "./App.css";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./Home";
-import Login from "./Login";
-import Register from "./Register";
+
 import { useState } from "react";
 import { Equipments } from "./Equipments";
 import Equipmentlist from "./Equipmentlist";
@@ -338,7 +337,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route path="/register" element={<Register />} />
+          
           <Route
             path="/equipments"
             element={<Equipmentlist handleClick={handleClick} />}
