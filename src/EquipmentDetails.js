@@ -7,6 +7,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import { DeleteEquipment } from "./DeleteEquipment";
 import { API } from "./global.js";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 export function EquipmentDetails({ deletebutton }) {
   const { id } = useParams();
@@ -26,7 +29,8 @@ export function EquipmentDetails({ deletebutton }) {
         alt={equipment.name}
         className="equipmentimage"
       />
-      <div className="equipment-individual">
+      <Card className="equipment-individual">
+      <CardContent>
         <h2 className="equipmentName">{equipment.name}</h2>
         <p className="equipmentRating"> &#11088;{equipment.rating}</p>
         <h5 className="equipmentbrand">{equipment.brandname}</h5>
@@ -35,7 +39,8 @@ export function EquipmentDetails({ deletebutton }) {
           <i>Rent:</i>
           {equipment.rent_per_month} per month
         </p>
-
+       
+        
         <div className="buttons">
           <div className="edit-delete">
             <IconButton
@@ -53,12 +58,14 @@ export function EquipmentDetails({ deletebutton }) {
         </div>
         <Button
           onClick={() => navigate(-1)}
-          variant="outlined"
+          variant="contained"
           startIcon={<ArrowBackIosIcon />}
         >
           Back
         </Button>
+        </CardContent>
+        </Card>
       </div>
-    </div>
+        
   );
 }

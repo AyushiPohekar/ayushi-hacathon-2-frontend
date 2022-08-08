@@ -315,9 +315,9 @@ const [cart,setCart]=useState([]);
          <Box sx={{ flexGrow: 1 }}></Box>
       <AppBar position="static" className="navbar">
         <Toolbar>
-          {/* <Button onClick={() => navigate("/")} color="inherit">
+          <Button onClick={() => navigate("/")} color="inherit">
             Home
-          </Button> */}
+          </Button>
           <Button onClick={() => navigate("/equipments")} color="inherit">
             Equipments
           </Button>
@@ -332,7 +332,7 @@ const [cart,setCart]=useState([]);
       <section className="route-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<Navigate replace to="/equipments" />} />
+        
           <Route path="/register" element={<Register />} />
           <Route path="/equipments" element={<Equipmentlist handleClick={handleClick}/>} />
           <Route path="/equipments/:id" element={<EquipmentDetails />} />

@@ -65,7 +65,7 @@ return(
 <TextField value={rating} label="Rating" variant="outlined" onChange={(event) => setRating(event.target.value)} />
 <TextField value={summary} label="Summary" variant="outlined" onChange={(event) => setSummary(event.target.value)} />
 <TextField value={rent_per_month} label="rent_per_month" variant="outlined" onChange={(event) => setrent_per_month(event.target.value)} />
-<Button onClick={editequipment} variant="outlined" color="success">Save</Button>
+<Button onClick={editequipment} variant="contained" color="success">Save</Button>
 </div>)
 }
 export default Editequipment;

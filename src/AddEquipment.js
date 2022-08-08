@@ -81,7 +81,7 @@ import { useNavigate } from "react-router-dom";
     />
    
 
-    <Button onClick={addequipment} variant="outlined" color="success">
+    <Button onClick={addequipment} variant="contained" color="success">
       Save
     </Button>
   </div>

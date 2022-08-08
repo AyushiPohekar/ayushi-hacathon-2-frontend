@@ -19,11 +19,17 @@ function Equipmentlist({handleClick}) {
 
   const navigate = useNavigate();
   return (
+    <div>
+    <div className="search">
+      <input placeholder="what are you lookin for?"/>
+      </div>
     <div className="equipment-list">
       {equipmentlist.map((eq) => (
         <Equipments equipment={eq} key={eq.id} id={eq.id} handleClick={handleClick}/>
       ))}
     </div>
+    </div>
+    
   );
 }
 export default Equipmentlist;
