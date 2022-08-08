@@ -51,7 +51,7 @@ function AddEquipment({ equipmentList, setEquipmentlist }) {
         value={brandname}
         label="BrandName"
         variant="outlined"
-        onChange={(event) => setName(event.target.value)}
+        onChange={(event) => setbrandname(event.target.value)}
       />
       <TextField
         value={img}
