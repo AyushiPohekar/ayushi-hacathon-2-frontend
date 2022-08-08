@@ -4,13 +4,14 @@ import TextField from '@mui/material/TextField';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {useEffect } from 'react';
+import { API } from "./global.js";
 
  function Editequipment() {
   const { id } = useParams();
   // const equipment = equipmentList[id];
   const [equipment, setequipment] = useState(null);
 
-  const getequipment=()=>{fetch(`https://62a970daec36bf40bdb78cff.mockapi.io/equipments/${id}`,{
+  const getequipment=()=>{fetch(`${API}/equipments/${id}`,{
     method:"GET",
   })
   .then((data)=>data.json())
@@ -46,7 +47,7 @@ function EditequipmentForm({equipment})
     //1.METHOD-POST
     //2.
 
-    fetch(`https://62a970daec36bf40bdb78cff.mockapi.io/equipments/${equipment.id}/edit`, {
+    fetch(`${API}/equipments/${equipment.id}/edit`, {
       method: "PUT",
       body: JSON.stringify(updatedequipment),
       headers: {
